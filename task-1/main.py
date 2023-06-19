@@ -83,13 +83,10 @@ if __name__ == '__main__':
     data = read_data('north_data/customers_data.csv')
     data = [el.split(',') for el in data if el]
     write_customers_data_to_db(con, data)
+
     # Заполнение таблицы employees
     data_employees = read_data('north_data/employees_data.csv')
-    print(data_employees)
-    # Разделение данных и удаление лишних кавычек
     data_employees = [el.replace('"', '').split(',') for el in data_employees if el]
-    print(data_employees)
-    # Вывод данных
     write_employees_data_to_db(con, data_employees)
 
     # Заполнение таблицы orders
